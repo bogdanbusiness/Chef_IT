@@ -33,14 +33,32 @@ app.get(apiURL, (req, res) => {
   res.send({"string": "Hello from express!"});
 });
 
-// What to do with a POST request
-app.post(apiURL + ":id", (req, res) => {
-  const { id } = req.params;
-  const { logo } = req.body;
+// Handle a user request
+app.get(apiURL + "/user", (req, res) => {
+  res.status(200);
+  res.send({"string": "Hello from express!"});
+});
 
-  if (!logo) {
-    res.status(418).send({ message: "Logo not found."});
-  }
+// Handle a recipe request
+app.get(apiURL + "/recipe", (req, res) => {
+  res.status(200);
+  res.send({"string": "Hello from express!"});
+});
+
+
+// Handle a user add request
+app.post(apiURL + "/user", (req, res) => {
+  
+
+  res.send({
+    struct: `struct with id: ${id} and logo: ${logo}` ,
+  });
+
+});
+
+// Handle a recipe add request
+app.post(apiURL + "/recipe", (req, res) => {
+  
 
   res.send({
     struct: `struct with id: ${id} and logo: ${logo}` ,

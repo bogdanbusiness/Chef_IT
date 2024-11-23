@@ -1,0 +1,22 @@
+div.menuButton {
+  /* Make sticky*/
+  position: sticky;
+  top: 25px;
+
+  z-index: 1;
+}
+
+img.menuButton {
+  position: relative;
+  left: 25px;
+  width: 44.85px;
+  height: 39px;
+
+  transition: transform 250ms ease;
+}
+
+@media screen and (min-width: 800px) {
+  div.menuButton {
+    display: none;
+  }
+}
