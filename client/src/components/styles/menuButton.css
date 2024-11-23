@@ -1,27 +1,31 @@
 :root {
-  --animation-time: 0;
-  --min-width: 0;
+  --menuButtonPosition: 25px;
+  --menuButtonWidth: 45px;
+  --menuButtonHeight: 40px;
+  --animation-time: 250ms;
+
+  --mobileDisplay: 768px;
 }
 
-div.menuButton {
-  /* Make sticky*/
+span.menuButton {
   position: sticky;
-  top: 25px;
-
   z-index: 1;
 }
 
 img.menuButton {
-  position: relative;
-  left: 25px;
-  width: 44.85px;
-  height: 39px;
+  position: fixed;
+
+  top: var(--menuButtonPosition);
+  left: var(--menuButtonPosition);
+
+  width: var(--menuButtonWidth);
+  height: var(--menuButtonHeight);
 
   transition: transform var(--animation-time) linear;
 }
 
-@media screen and (min-width: 800px) {
-  div.menuButton {
+@media screen and (min-width: 768) {
+  span.menuButton {
     display: none;
   }
 }

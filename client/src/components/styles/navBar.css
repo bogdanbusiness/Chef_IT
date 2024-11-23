@@ -1,0 +1,32 @@
+:root {
+  --nav-bgcolor: rgba(0, 0, 0, 0.4);
+  --nav-mobileWidth: 0;
+  
+  --animation-time: 250ms;
+
+  --nav-border-radius: 25px;
+}
+
+span.divBgBlur {
+  display: block;
+  position: fixed;
+
+  top: 0;
+  right: 0;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+span.navBar {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  background-color: var(--nav-bgcolor);
+
+  width: var(--nav-mobileWidth);
+  height: 100vh;
+}
+

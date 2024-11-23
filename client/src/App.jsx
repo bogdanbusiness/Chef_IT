@@ -1,6 +1,7 @@
 // import { useEffect, useState } from 'react'
-import MenuButton from './components/menuButton.jsx';
+// import MenuButton from './components/menuButton.jsx';
 import './App.css'
+import NavBar from './components/NavBar.jsx';
 
 // Enviroment variables
 // const serverURL = import.meta.env.VITE_backendURL;
@@ -8,7 +9,7 @@ import './App.css'
 function App() {
   return (
     <>
-      <MenuButton />
+      <NavBar />
       <div className='filler'>
 
       </div>
