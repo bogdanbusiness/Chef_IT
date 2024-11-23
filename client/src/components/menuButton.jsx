@@ -2,8 +2,11 @@ import './styles/menuButton.css'
 import button from '../assets/menuButton.png'
 import {useState, useRef} from 'react'
 
+// Set CSS variables dynamically
+document.documentElement.style.setProperty('--animation-time', import.meta.env.VITE_menuButtonAnimationLength);
+
 function MenuButton() {
-  const imgRef = useRef();
+  const buttonImageReference = useRef();
   const [rotation, setRotation] = useState(0);
 
   function openMenu() {
@@ -17,7 +20,7 @@ function MenuButton() {
 
   return (
     <div className='menuButton' onClick={openMenu}>
-      <img ref={imgRef} className="menuButton" style={{ transform: `rotate(${rotation}deg)` }} src={button}>
+      <img ref={buttonImageReference} className="menuButton" style={{ transform: `rotate(${rotation}deg)` }} src={button}>
       </img>
     </div>
   );

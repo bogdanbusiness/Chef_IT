@@ -1,3 +1,8 @@
+:root {
+  --animation-time: 0;
+  --min-width: 0;
+}
+
 div.menuButton {
   /* Make sticky*/
   position: sticky;
@@ -12,7 +17,7 @@ img.menuButton {
   width: 44.85px;
   height: 39px;
 
-  transition: transform 250ms ease;
+  transition: transform var(--animation-time) linear;
 }
 
 @media screen and (min-width: 800px) {
