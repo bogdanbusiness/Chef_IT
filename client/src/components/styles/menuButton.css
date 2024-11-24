@@ -1,5 +1,5 @@
 :root {
-  --menuButtonPosition: 25px;
+  --menuButtonPosition: 6vw;
   --menuButtonWidth: 45px;
   --menuButtonHeight: 40px;
   --animation-time: 250ms;
@@ -13,6 +13,7 @@ span.menuButton {
 }
 
 img.menuButton {
+  display: block;
   position: fixed;
 
   top: var(--menuButtonPosition);
@@ -21,11 +22,6 @@ img.menuButton {
   width: var(--menuButtonWidth);
   height: var(--menuButtonHeight);
 
+  cursor: pointer;
   transition: transform var(--animation-time) linear;
-}
-
-@media screen and (min-width: 768) {
-  span.menuButton {
-    display: none;
-  }
 }

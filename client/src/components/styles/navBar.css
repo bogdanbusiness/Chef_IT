@@ -1,11 +1,20 @@
 :root {
-  --nav-bgcolor: rgba(0, 0, 0, 0.4);
+  --nav-mobileBgColor: #FFFFFF66;
+  --nav-desktopBgColor: #00236D;
+
+  --nav-mobileBoxshadow: 5px 4px 15px 0px #00000026;
+  --nav-desktopBoxshadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;;
+  
+  /* Real value is in .env */
   --nav-mobileWidth: 0;
   
   --animation-time: 250ms;
 
   --nav-border-radius: 25px;
+  --nav-background-blur: 5px;
 }
+
+/* Mobile website*/
 
 span.divBgBlur {
   display: block;
@@ -16,6 +25,9 @@ span.divBgBlur {
 
   width: 100vw;
   height: 100vh;
+
+  backdrop-filter: blur(var(--nav-background-blur));
+  -webkit-backdrop-filter: blur(var(--nav-background-blur));
 }
 
 span.navBar {
@@ -24,9 +36,42 @@ span.navBar {
   top: 0;
   left: 0;
 
-  background-color: var(--nav-bgcolor);
+  background-color: var(--nav-mobileBgColor);
+  box-shadow: var(--nav-mobileBoxshadow);
 
   width: var(--nav-mobileWidth);
   height: 100vh;
+}
+
+div.navBarContainer {
+  display: block;
+  width: 100%;
+  height: 15vh;
+}
+
+/* Desktop website */
+@media screen and (min-width: 768px) {
+  span.divBgBlur {
+    display: none;
+  }
+
+  span.menuButton {
+    display: none;
+  }
+
+  span.navBar {
+    position: fixed;
+    top: 0;
+
+    height: 15vh;
+    width: -webkit-fill-available;
+    width: -moz-available;
+
+    background-color: var(--nav-desktopBgColor);
+    box-shadow: var(--nav-desktopBoxshadow);
+
+    border-bottom-left-radius: var(--nav-border-radius);
+    border-bottom-right-radius: var(--nav-border-radius);
+  }
 }
 
