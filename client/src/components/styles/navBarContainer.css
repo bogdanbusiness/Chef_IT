@@ -7,11 +7,10 @@
   
   /* Real value is in .env */
   --nav-mobileWidth: 0;
-  
-  --animation-time: 250ms;
-
   --nav-border-radius: 25px;
   --nav-background-blur: 5px;
+  
+  --animation-time: 250ms;
 }
 
 /* Mobile website*/
@@ -41,12 +40,17 @@ span.navBar {
 
   width: var(--nav-mobileWidth);
   height: 100vh;
+
+  transition: transform var(--animation-time) ease-in-out;
 }
 
 div.navBarContainer {
   display: block;
   width: 100%;
-  height: 15vh;
+}
+
+div.navBarDesktop {
+  display: none;
 }
 
 /* Desktop website */
@@ -60,6 +64,11 @@ div.navBarContainer {
   }
 
   span.navBar {
+    display: none;
+  }
+
+  div.navBarDesktop {
+    display: block;
     position: fixed;
     top: 0;
 
