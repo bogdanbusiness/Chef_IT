@@ -1,0 +1,43 @@
+:root {
+  --linkBorderedButton-font-size: 1em;
+  --linkBorderedButton-font-weight: 500;
+  --linkBorderedButton-font-color: #000000;
+  --linkBorderedButton-font-color-hover: #777777;
+  
+  --linkBorderedButton-border-width: 3px;
+  --linkBorderedButton-padding: 10px 20px;
+
+  /* Default options */
+  --linkBorderedButton-margin: 5px 5px 5px 5px;
+  --linkBorderedButton-border-radius: 21px;
+}
+
+span.borderedLinkButtonContainer {
+  display: inline-block;
+  margin: var(--linkBorderedButton-margin);
+  padding: var(--linkBorderedButton-padding);
+
+  border-width: var(--linkBorderedButton-border-width);
+  border-radius: var(--linkBorderedButton-border-radius);
+  border-color: var(--linkBorderedButton-font-color);
+  border-style: solid;
+}
+
+a.borderedLinkButton {
+  font-family: Montserrat;
+  text-underline-position: from-font;
+  text-decoration: none;
+  text-align: center;
+
+  font-size: var(--linkBorderedButton-font-size);
+  font-weight: var(--linkBorderedButton-font-weight);
+  color: var(--linkBorderedButton-font-color);
+}
+
+a.borderedLinkButton:hover {
+  color: var(--linkBorderedButton-font-color-hover);
+}
+
+a.borderedLinkButton:link {
+  color: var(--linkBorderedButton-font-color);
+}

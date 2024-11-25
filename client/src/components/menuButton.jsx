@@ -4,7 +4,7 @@ import button from '../assets/menuButton.png'
 // // Set CSS variables dynamically
 // document.documentElement.style.setProperty('--animation-time', import.meta.env.VITE_menuButtonAnimationLength);
 
-function MenuButton({click, handleClick}) {
+function MenuButton({ click, handleClick }) {
   function deriveRotation() {
     // Rotate the image
     if (click == false) {

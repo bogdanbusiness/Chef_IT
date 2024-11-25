@@ -1,5 +1,3 @@
-// import { useEffect, useState } from 'react'
-// import MenuButton from './components/menuButton.jsx';
 import './App.css'
 import NavBarContainer from './components/NavBarContainer.jsx';
 
@@ -10,15 +8,6 @@ function App() {
   return (
     <>
       <NavBarContainer />
-      <div className='filler'>
-
-      </div>
-      <div className='filler'>
-
-      </div>
-      <div className='filler'>
-
-      </div>
     </>
   );
 
@@ -47,4 +36,4 @@ function App() {
   // );
 }
 
-export default App
+export default App;

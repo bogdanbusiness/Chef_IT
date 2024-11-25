@@ -1,5 +1,7 @@
 import './styles/navBarContainer.css'
-import {useState, useEffect} from 'react'
+import BorderedLinkButton from './BorderedLinkButton.jsx';
+import LinkButton from './LinkButton.jsx';
+import { useState, useEffect } from 'react'
 import MenuButton from './menuButton';
 
 // CSS variable from .env
@@ -11,16 +13,16 @@ function NavBarContainer() {
 
   function handleOnClick() {
     if (clicked == false)
-       setClicked(true);
+      setClicked(true);
   }
-  
+
   function handleOffClick() {
     if (clicked == true)
       setClicked(false);
   }
 
   // Changes the state of the site to true on resize
-  useEffect (() => {
+  useEffect(() => {
     function handleResize() {
       setClicked(false);
     }
@@ -30,21 +32,50 @@ function NavBarContainer() {
   }, []);
 
   // Moves the element to the right on click
-  function moveRight () {
+  function moveRight() {
     return clicked == false ? - import.meta.env.VITE_navBarWidth - 10 : 0;
   }
 
   // Blurs the entire page on click
-  function blurBackground () {
+  function blurBackground() {
     return clicked == false ? -100 : 0
   }
 
   return (
     <div className='navBarContainer'>
-      <MenuButton click={clicked} handleClick={handleOnClick}/>
+      {/* This button switches on the menu on mobile, invisible on desktop */}
+      <MenuButton click={clicked} handleClick={handleOnClick} />
+
+      {/* Turned on by the button, turns off the menu on mobile, invisible on desktop */}
       <span className='divBgBlur' onClick={handleOffClick} style={{ transform: `translateX(${blurBackground()}vw)` }} />
-      <span className='navBar' style={{ transform: `translateX(${moveRight()}vw)` }} /> 
-      <div className='navBarDesktop' />
+
+      {/* Menu bar for mobile */}
+      <span className='navBar' style={{ transform: `translateX(${moveRight()}vw)` }}>
+        <div className='buttonContainer'>
+          <span className='navBarFiller' style={{
+            height: "5vh"
+          }} />
+          <LinkButton message="Home" color="black" link={'index.html'}/>
+          <LinkButton message="Recipes" color="black"/>
+          <LinkButton message="Add Recipe" color="black"/>
+
+          <span className='navBarFiller' style={{
+            height: "10vh"
+          }} />
+          <BorderedLinkButton message="Login" color="black" borderColor={"#" + import.meta.env.VITE_primaryColor}/>
+          <LinkButton message="Recipes" color="black"/>
+        </div>
+      </span>
+
+      {/* Menu bar for desktop  */}
+      <div className='navBarDesktop'>
+        <div className='buttonContainer'>
+          <LinkButton message="Recipes" color="white"/>
+          <LinkButton message="Add Recipe" color="white"/>
+          <BorderedLinkButton message="Login" color="white" borderColor="white"/>
+          <LinkButton message="Recipes" color="white"/>
+        </div>
+      </div>
     </div>
   );
 }
