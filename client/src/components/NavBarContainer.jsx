@@ -1,9 +1,9 @@
-import './styles/navBarContainer.css'
+import './styles/navBarContainer.css';
 import BorderedLinkButton from './BorderedLinkButton.jsx';
 import LinkButton from './LinkButton.jsx';
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import MenuButton from './menuButton';
-import logo from '../assets/small_logo_white.png'
+import logo from '../assets/small_logo_white.png';
 
 // CSS variable from .env
 document.documentElement.style.setProperty('--nav-mobileWidth', import.meta.env.VITE_navBarWidth + "vw");

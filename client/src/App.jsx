@@ -1,5 +1,6 @@
 import './App.css'
-import NavBarContainer from './components/NavBarContainer.jsx';
+// import NavBarContainer from './components/NavBarContainer.jsx';
+import Footer from './components/Footer.jsx';
 
 // Enviroment variables
 // const serverURL = import.meta.env.VITE_backendURL;
@@ -7,7 +8,14 @@ import NavBarContainer from './components/NavBarContainer.jsx';
 function App() {
   return (
     <>
-      <NavBarContainer />
+      <Footer />
+      <div className='filler'>
+
+      </div>
+      <div className='filler2'>
+
+      </div>
+      {/* <NavBarContainer /> */}
     </>
   );
 
