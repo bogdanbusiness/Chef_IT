@@ -4,7 +4,6 @@
 
   --nav-mobileBoxshadow: 5px 4px 15px 0px #00000026;
   --nav-desktopBoxshadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  ;
 
   /* Real value is in .env */
   --nav-mobileWidth: 0;
@@ -117,13 +116,25 @@ img.logo {
 
   div.buttonContainer {
     height: var(--nav-desktopBarHeight);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+
+    display: inline-grid;
+    display: -ms-inline-grid;
+    display: -moz-inline-grid;
+  
+    grid-template-columns: 0.6fr 1.4fr 1fr 1vw;
+    grid-template-rows: fit-content;
   }
 
-  span.navBarFiller {
-    width: 30vw;
-    height: 0;
-  }  
+  a.logoContainer {
+    justify-self: center;
+  }
+
+  img.logo {
+    display: inline-block;
+    height: 10vh;
+  }
+
+  span.loginGroup {
+    justify-self: end;
+  }
 }

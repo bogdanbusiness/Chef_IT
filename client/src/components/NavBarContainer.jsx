@@ -3,6 +3,7 @@ import BorderedLinkButton from './BorderedLinkButton.jsx';
 import LinkButton from './LinkButton.jsx';
 import { useState, useEffect } from 'react'
 import MenuButton from './menuButton';
+import logo from '../assets/small_logo_white.png'
 
 // CSS variable from .env
 document.documentElement.style.setProperty('--nav-mobileWidth', import.meta.env.VITE_navBarWidth + "vw");
@@ -70,10 +71,19 @@ function NavBarContainer() {
       {/* Menu bar for desktop  */}
       <div className='navBarDesktop'>
         <div className='buttonContainer'>
-          <LinkButton message="Recipes" color="white"/>
-          <LinkButton message="Add Recipe" color="white"/>
-          <BorderedLinkButton message="Login" color="white" borderColor="white"/>
-          <LinkButton message="Recipes" color="white"/>
+          <a className='logoContainer' href='index.html'>
+            <img className='logo' src={logo} />
+          </a>
+
+          <span className='recipeGroup'>
+            <LinkButton message="Recipes" color="white" link=''/>
+            <LinkButton message="Add Recipe" color="white" link=''/>
+          </span>
+
+          <span className='loginGroup'>
+            <BorderedLinkButton message="Login" color="white" borderColor="white" link=''/>
+            <LinkButton message="Register" color="white" link=''/>
+          </span>
         </div>
       </div>
     </div>

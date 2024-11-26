@@ -8,8 +8,10 @@
   --linkBorderedButton-padding: 10px 20px;
 
   /* Default options */
-  --linkBorderedButton-margin: 5px 5px 5px 5px;
+  --linkBorderedButton-margin: 7px 7px 7px 7px;
   --linkBorderedButton-border-radius: 21px;
+
+  --linkButton-gap: 10px;
 }
 
 span.borderedLinkButtonContainer {

@@ -3,14 +3,18 @@
   --linkButton-font-weight: 500;
   --linkButton-font-color: #000000;
   --linkButton-font-color-hover: #777777;
-  --linkButton-margin: 5px 5px 5px 5px;
-  --linkButton-padding: 10px 10px 10px 10px;
+  --linkButton-margin: 7px 7px 7px 7px;
+  --linkButton-padding: 5px 5px 5px 5px;
+
+  --linkButton-gap: 10px;
 }
 
 span.linkButtonContainer {
   display: inline-block;
   margin: var(--linkButton-margin);
   padding: var(--linkButton-padding);
+
+  gap: var(--linkButton-gap);
 }
 
 a.linkButton {
