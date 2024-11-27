@@ -1,18 +1,13 @@
-p {
-  margin: 0;
-  color: black;
-}
-
 div.filler {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background-color: aqua;
   /* background-image: url(https://picsum.photos/200/300); */
 }
 
 div.filler2 {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background-color: whitesmoke;
   /* background-image: url(https://picsum.photos/200/300); */
 }

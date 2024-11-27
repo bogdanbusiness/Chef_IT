@@ -8,13 +8,13 @@ import Footer from './components/Footer.jsx';
 function App() {
   return (
     <>
-      <Footer />
       <div className='filler'>
 
       </div>
       <div className='filler2'>
 
       </div>
+      <Footer />
       {/* <NavBarContainer /> */}
     </>
   );
