@@ -1,6 +1,8 @@
-import './App.css'
-// import NavBarContainer from './components/NavBarContainer.jsx';
+import './App.css';
+import NavBarContainer from './components/NavBarContainer.jsx';
 import Footer from './components/Footer.jsx';
+import MainBody from './components/MainBody.jsx';
+import bigLogo from './assets/big_logo_black.png'
 
 // Enviroment variables
 // const serverURL = import.meta.env.VITE_backendURL;
@@ -8,14 +10,9 @@ import Footer from './components/Footer.jsx';
 function App() {
   return (
     <>
-      <div className='filler'>
-
-      </div>
-      <div className='filler2'>
-
-      </div>
+      <NavBarContainer />
+      <MainBody child={<img className='bigLogo' src={bigLogo} />} />
       <Footer />
-      {/* <NavBarContainer /> */}
     </>
   );
 

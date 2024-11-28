@@ -10,7 +10,9 @@
   --nav-border-radius: 25px;
   --nav-background-blur: 4px;
 
-  --nav-desktopBarHeight: 15vh;
+  --nav-desktopBarHeight: 10vh;
+
+  --nav-logoHeight: 7vh;
 
   --animation-time: 250ms;
 }
@@ -51,6 +53,7 @@ span.navBar {
 div.navBarContainer {
   display: block;
   width: 100%;
+  height: var(--nav-desktopBarHeight);
 }
 
 div.navBarDesktop {
@@ -131,7 +134,7 @@ img.logo {
 
   img.logo {
     display: inline-block;
-    height: 10vh;
+    height: var(--nav-logoHeight);
   }
 
   span.loginGroup {

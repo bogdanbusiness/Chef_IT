@@ -1,0 +1,27 @@
+:root {
+  --mainBody-mobileHeight: 30vh;
+}
+
+div.mainBody {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: var(--mainBody-mobileHeight);
+}
+
+/* Desktop website */
+@media screen and (min-width: 768px) {
+  div.mainBody {
+    background-image:  url(../../assets/mainBackground.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+
+    /* this is a hack but i cannot find another way to do this*/
+    /* aspect ratio: 320:157 width:height */
+    height: calc(100vw * 157/320);
+  }
+}
+
+

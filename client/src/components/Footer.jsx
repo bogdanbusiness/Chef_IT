@@ -12,19 +12,19 @@ function Footer() {
       <img className='mobile' src={mobileFooter} />
 
       <span className='iconsContainer'>
-        <a>
+        <a href=''>
           <img className='appIcon' src={igIcon}/>
         </a>
 
-        <a>
+        <a href=''>
           <img className='appIcon' src={fbIcon}/>
         </a>
 
-        <a>
+        <a href=''>
           <img className='appIcon' src={ytIcon}/>
         </a>
 
-        <a>
+        <a href=''>
           <img className='appIcon' src={twIcon}/>
         </a>
       </span>
