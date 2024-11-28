@@ -1,5 +1,5 @@
 :root {
-  --linkButton-font-size: 1em;
+  --linkButton-font-size: 1rem;
   --linkButton-font-weight: 500;
   --linkButton-font-color: #000000;
   --linkButton-font-color-hover: #777777;
@@ -7,6 +7,8 @@
   --linkButton-padding: 5px 5px 5px 5px;
 
   --linkButton-gap: 10px;
+
+  --linkButton-fontName: ;
 }
 
 span.linkButtonContainer {
@@ -18,8 +20,7 @@ span.linkButtonContainer {
 }
 
 a.linkButton {
-  font-family: Montserrat;
-  text-underline-position: from-font;
+  font-family: var(--linkButton-fontName);
   text-decoration: none;
   text-align: justify;
 

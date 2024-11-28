@@ -1,5 +1,6 @@
 :root {
-  --mainBody-mobileHeight: 30vh;
+  --mainBody-mobileHeight: 25vh;
+  --mainBody-minHeight: 200px; 
 }
 
 div.mainBody {
@@ -7,6 +8,8 @@ div.mainBody {
   align-items: center;
   justify-content: center;
   width: 100%;
+  min-height: var(--mainBody-minHeight);
+
   height: var(--mainBody-mobileHeight);
 }
 

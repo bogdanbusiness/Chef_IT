@@ -1,6 +1,6 @@
 :root {
   --nav-mobileBgColor: #FFFFFF66;
-  --nav-desktopBgColor: #00236D;
+  --nav-desktopBgColor: #000000;
 
   --nav-mobileBoxshadow: 5px 4px 15px 0px #00000026;
   --nav-desktopBoxshadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -11,7 +11,10 @@
   --nav-background-blur: 4px;
 
   --nav-desktopBarHeight: 10vh;
+  --nav-desktopBarMinHeight: 75px;
 
+
+  --nav-logoMinHeight: 50px;
   --nav-logoHeight: 7vh;
 
   --animation-time: 250ms;
@@ -106,6 +109,7 @@ img.logo {
     position: fixed;
     top: 0;
 
+    min-height: var(--nav-desktopBarMinHeight);
     height: var(--nav-desktopBarHeight);
     width: -webkit-fill-available;
     width: -moz-available;
@@ -118,6 +122,7 @@ img.logo {
   }
 
   div.buttonContainer {
+    min-height: var(--nav-desktopBarMinHeight);
     height: var(--nav-desktopBarHeight);
 
     display: inline-grid;
@@ -134,7 +139,9 @@ img.logo {
 
   img.logo {
     display: inline-block;
+
     height: var(--nav-logoHeight);
+    min-height: var(--nav-desktopBarMinHeight);
   }
 
   span.loginGroup {

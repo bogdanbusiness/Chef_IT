@@ -1,11 +1,6 @@
-:root {
-
-}
-
 img.bigLogo {
   min-width: 200px;
   width: 30vw;
-  z-index: 1;
   /* height: 15vh; */
 }
 

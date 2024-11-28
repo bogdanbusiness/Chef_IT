@@ -7,6 +7,7 @@ import logo from '../assets/small_logo_white.png';
 
 // CSS variable from .env
 document.documentElement.style.setProperty('--nav-mobileWidth', import.meta.env.VITE_navBarWidth + "vw");
+document.documentElement.style.setProperty('--nav-desktopBgColor', "#"  + import.meta.env.VITE_primaryColor);
 
 function NavBarContainer() {
   // Use state to know when the menu image has been clicked
@@ -53,9 +54,7 @@ function NavBarContainer() {
       {/* Menu bar for mobile */}
       <span className='navBar' style={{ transform: `translateX(${moveRight()}vw)` }}>
         <div className='buttonContainer'>
-          <span className='navBarFiller' style={{
-            height: "5vh"
-          }} />
+          
           <LinkButton message="Home" color="black" link={'index.html'}/>
           <LinkButton message="Recipes" color="black"/>
           <LinkButton message="Add Recipe" color="black"/>

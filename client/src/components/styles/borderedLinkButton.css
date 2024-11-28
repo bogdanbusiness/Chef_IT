@@ -1,5 +1,5 @@
 :root {
-  --linkBorderedButton-font-size: 1em;
+  --linkBorderedButton-font-size: 1rem;
   --linkBorderedButton-font-weight: 500;
   --linkBorderedButton-font-color: #000000;
   --linkBorderedButton-font-color-hover: #777777;
@@ -12,6 +12,8 @@
   --linkBorderedButton-border-radius: 21px;
 
   --linkButton-gap: 10px;
+
+  --borderedLinkButton-fontName: ;
 }
 
 span.borderedLinkButtonContainer {
@@ -26,8 +28,7 @@ span.borderedLinkButtonContainer {
 }
 
 a.borderedLinkButton {
-  font-family: Montserrat;
-  text-underline-position: from-font;
+  font-family: var(--borderedLinkButton-fontName);
   text-decoration: none;
   text-align: center;
 

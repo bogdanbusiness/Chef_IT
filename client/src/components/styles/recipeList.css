@@ -1,0 +1,32 @@
+:root {
+  --recipeList-minHeight: 300px;
+  --recipeList-height: 60vh;
+  --recipeList-backgroundColor: #000000;
+
+  --recipeList-fontName: ;
+  --recipeList-fontSize: 1em;
+}
+
+div.recipeList {
+  width: 100%;
+  height: var(--recipeList-height);
+  min-height: var(--recipeList-minHeight);
+
+  background-color: var(--recipeList-backgroundColor);
+}
+
+div.recipeListTitle {
+  padding: 1.5vh 0;
+  margin: 0;
+
+  font-family: var(--linkButton-fontName);
+  font-weight: 700;
+  font-size: 3rem;
+  
+  color: white;
+  text-align: center;
+}
+
+div.recipeListTitle h1 {
+  margin: 0;
+}
