@@ -43,6 +43,8 @@ function NavBarContainer() {
     return clicked == false ? -100 : 0
   }
 
+  const loggedIn = true;
+
   return (
     <div className='navBarContainer'>
       {/* This button switches on the menu on mobile, invisible on desktop */}
@@ -54,16 +56,26 @@ function NavBarContainer() {
       {/* Menu bar for mobile */}
       <span className='navBar' style={{ transform: `translateX(${moveRight()}vw)` }}>
         <div className='buttonContainer'>
-          
-          <LinkButton message="Home" color="black" link={'index.html'}/>
-          <LinkButton message="Recipes" color="black"/>
-          <LinkButton message="Add Recipe" color="black"/>
+          <span className='recipeGroup'>
+            <LinkButton message="Home" color="black" link={'index.html'}/>
+            <LinkButton message="Recipes" color="black"/>
+            <LinkButton message="Add Recipe" color="black"/>
+          </span>
 
-          <span className='navBarFiller' style={{
-            height: "10vh"
-          }} />
-          <BorderedLinkButton message="Login" color="black" borderColor={"#" + import.meta.env.VITE_primaryColor}/>
-          <LinkButton message="Recipes" color="black"/>
+          <span className='navBarFiller' style={{ height: "10vh" }} />
+
+          <span className='loginGroup'>
+            { loggedIn ? (
+              <>
+                <BorderedLinkButton message="Profile" color="black" borderColor={"#" + import.meta.env.VITE_primaryColor} link=''/>
+              </>
+            ) : (
+              <>
+                <BorderedLinkButton message="Login" color="black" borderColor={"#" + import.meta.env.VITE_primaryColor} link=''/>
+                <LinkButton message="Recipes" color="black" link=''/>
+              </>
+            )} 
+          </span>
         </div>
       </span>
 
@@ -80,8 +92,19 @@ function NavBarContainer() {
           </span>
 
           <span className='loginGroup'>
-            <BorderedLinkButton message="Login" color="white" borderColor="white" link=''/>
-            <LinkButton message="Register" color="white" link=''/>
+            { loggedIn ? (
+              <>
+                <LinkButton message="Profile" color="white" link=''/>
+                <span className='navBarFiller' style={{
+                  width: "8vw"
+                }} />
+              </>
+            ) : (
+              <>
+                <BorderedLinkButton message="Login" color="white" borderColor="white" link=''/>
+                <LinkButton message="Register" color="white" link=''/>
+              </>
+            )}
           </span>
         </div>
       </div>

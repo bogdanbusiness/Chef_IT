@@ -9,11 +9,6 @@ document.documentElement.style.setProperty('--recipeHorizontal-fontName', import
 
 function RecipeContainerHorizontal({rid, creator, name, description, 
                                     rating, ratingNo, image, timestamp, isDisplayed}) {
-  
-  function ceva () {
-
-  }
-
   function showStar(index) {
     return (index + 1) <= rating ? fullStar : emptyStar;
   }

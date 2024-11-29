@@ -15,7 +15,7 @@
 
 
   --nav-logoMinHeight: 50px;
-  --nav-logoHeight: 7vh;
+  --nav-logoHeight: 6.5vh;
 
   --animation-time: 250ms;
 }
@@ -76,6 +76,14 @@ div.buttonContainer {
   height: 100vh;
   width: -webkit-fill-available;
   width: -moz-available;
+}
+
+span.recipeGroup, span.loginGroup {
+  display: flex;
+  padding: 3vh 0;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
 }
 
 span.navBarFiller {
@@ -139,9 +147,15 @@ img.logo {
 
   img.logo {
     display: inline-block;
+    padding: 0 0 0 10px;
 
     height: var(--nav-logoHeight);
     min-height: var(--nav-desktopBarMinHeight);
+  }
+
+  span.recipeGroup, span.loginGroup {
+    display: block;
+    padding: 0;
   }
 
   span.loginGroup {
