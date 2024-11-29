@@ -45,15 +45,13 @@ function RecipeList(/*{child}*/) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  console.log(isSingleSlide);
-
   // Data structure for recipes
   const RecipeInfo = {
     rid: 1,
     creator: "Nume Prenume",
     name: "Reteta",
     description: "Ceva",
-    rating: 5,
+    rating: 4.5,
     ratingNo: 2,
     image: "../assets/defaultRecipeImg.png",
     timestamp: 0

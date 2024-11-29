@@ -14,8 +14,8 @@ function RecipeContainerHorizontal({rid, creator, name, description,
 
   }
 
-  function showStar(isShown) {
-    return isShown ? fullStar : emptyStar;
+  function showStar(index) {
+    return (index + 1) <= rating ? fullStar : emptyStar;
   }
 
   if (isDisplayed) {
@@ -28,11 +28,15 @@ function RecipeContainerHorizontal({rid, creator, name, description,
           <div className='recipeHorizontalGroup1' >
             <span className='recipeHorizontalName'> {name} </span>
             <div className='recipeHorizontalStarContainer'>
-              <img src={fullStar} className='recipeHorizontalStar'/>
-              <img src={fullStar} className='recipeHorizontalStar'/>
-              <img src={fullStar} className='recipeHorizontalStar'/>
-              <img src={fullStar} className='recipeHorizontalStar'/>
-              <img src={fullStar} className='recipeHorizontalStar'/>              
+            {/* Array with stars to allow for showing stars dependent on the given rating */}
+            {
+              [...Array(5)].map (
+                (_, index) => (
+                  <img key={index} src={showStar(index)} className='recipeHorizontalStar' />
+                )
+              )
+            }
+         
             </div>
             <span className='recipeHorizontalRatingNo'> {ratingNo} </span>
           </div>
