@@ -1,0 +1,86 @@
+:root {
+  --recipeHorizontal-desktopWidth: 30%;
+  --recipeHorizontal-desktopHeight: 70%;
+  
+  --recipeHorizontal-backgroundColor: #FFFFFF;
+  --recipeHorizontal-borderColor: ;
+
+  --recipeHorizontal-fontName: ;
+
+  --recipeHorizontal-starSize: 10%;
+  --recipeHorizontal-group1Size: 50%;
+  --recipeHorizontal-group2Size: 30%;
+}
+
+span.recipeHorizontal {
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+  height: 100%;
+  background-color: var(--recipeHorizontal-backgroundColor);
+}
+
+img.recipeHorizontalImg {
+  width: 50%;
+  height: 100%;
+  border-width: 0 3px 0 0;
+  border-style: solid;
+  border-color: var(--recipeHorizontal-borderColor);
+}
+
+div.recipeHorizontalData {
+  font-family: var(--recipeHorizontal-fontName);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  width: 50%;
+  height: 100%;
+}
+
+div.recipeHorizontalGroup1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  height: var(--recipeHorizontal-group1Size);
+  width: 100%;
+}
+
+div.recipeHorizontalGroup2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  height: var(--recipeHorizontal-group2Size);
+  width: 100%;
+}
+
+span.recipeHorizontalName {
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+div.recipeHorizontalStarContainer {
+  display: flex;
+  justify-content: center;
+}
+
+img.recipeHorizontalStar {
+  width: var(--recipeHorizontal-starSize);
+  padding: 0 2px;
+}
+
+/* Desktop website */
+@media screen and (min-width: 768px) {
+  span.recipeHorizontal {
+    width: var(--recipeHorizontal-desktopWidth);
+    height: var(--recipeHorizontal-desktopHeight);
+  }
+}

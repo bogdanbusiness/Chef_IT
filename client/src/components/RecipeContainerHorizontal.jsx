@@ -1,0 +1,52 @@
+import './styles/recipeContainerHorizontal.css';
+import defaultImg from '../assets/defaultRecipeImg.png'
+import emptyStar from '../assets/emptyStar.png'
+import fullStar from '../assets/fullStar.png'
+
+
+document.documentElement.style.setProperty('--recipeHorizontal-borderColor', "#" + import.meta.env.VITE_secondaryColor);
+document.documentElement.style.setProperty('--recipeHorizontal-fontName', import.meta.env.VITE_fontName);
+
+function RecipeContainerHorizontal({rid, creator, name, description, 
+                                    rating, ratingNo, image, timestamp, isDisplayed}) {
+  
+  function ceva () {
+
+  }
+
+  function showStar(isShown) {
+    return isShown ? fullStar : emptyStar;
+  }
+
+  if (isDisplayed) {
+    return (
+      <span className='recipeHorizontal'>
+        <img src={defaultImg} className='recipeHorizontalImg'/>
+
+        <div className='recipeHorizontalData'>
+
+          <div className='recipeHorizontalGroup1' >
+            <span className='recipeHorizontalName'> {name} </span>
+            <div className='recipeHorizontalStarContainer'>
+              <img src={fullStar} className='recipeHorizontalStar'/>
+              <img src={fullStar} className='recipeHorizontalStar'/>
+              <img src={fullStar} className='recipeHorizontalStar'/>
+              <img src={fullStar} className='recipeHorizontalStar'/>
+              <img src={fullStar} className='recipeHorizontalStar'/>              
+            </div>
+            <span className='recipeHorizontalRatingNo'> {ratingNo} </span>
+          </div>
+
+          <div className='recipeHorizontalGroup2' >
+            <span className='recipeHorizontalAuthor'> Author: </span>
+            <span className='recipeHorizontalCreator'> {creator} </span>
+          </div>
+        </div>
+      </span>
+    );
+  }
+
+  return null;
+};
+
+export default RecipeContainerHorizontal;

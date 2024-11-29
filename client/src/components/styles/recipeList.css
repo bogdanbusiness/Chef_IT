@@ -1,13 +1,27 @@
 :root {
-  --recipeList-minHeight: 300px;
+  --recipeList-minHeight: 350px;
   --recipeList-height: 60vh;
+
   --recipeList-backgroundColor: #000000;
+
+  --recipeList-buttonHeight: 18vh;
+  --recipeList-buttonMinHeight: 105px;
+  --recipeList-buttonWidth: 7vw;
+  --recipeList-buttonMinWidth: 40px;
+
+  --recipeList-buttonBorderRadius: 5px;
+  --recipeList-buttonBackgroundColor: #FFFFFF;
+  --recipeList-arrowSize: 2.7rem;
+  --recipeList-arrowColor: #000000;
 
   --recipeList-fontName: ;
   --recipeList-fontSize: 1em;
 }
 
 div.recipeList {
+  display: flex;
+  flex-direction: column;
+
   width: 100%;
   height: var(--recipeList-height);
   min-height: var(--recipeList-minHeight);
@@ -20,13 +34,67 @@ div.recipeListTitle {
   margin: 0;
 
   font-family: var(--linkButton-fontName);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 3rem;
   
   color: white;
   text-align: center;
 }
 
-div.recipeListTitle h1 {
-  margin: 0;
+div.recipeListCarousel {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+span.recipeListCarouselButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  height: var(--recipeList-buttonHeight);
+  min-height: var(--recipeList-buttonMinHeight);
+
+  width: var(--recipeList-buttonWidth);
+  min-width: var(--recipeList-buttonMinWidth);
+
+  border-radius: var(--recipeList-buttonBorderRadius);
+
+  font-weight: 500;
+  font-size: var(--recipeList-arrowSize);
+
+  background-color: var(--recipeList-buttonBackgroundColor);
+  color: var(--recipeList-arrowColor);
+}
+
+span.recipeListCarouselContainer {
+  width: 60%;
+  height: 80%;
+}
+
+/* Desktop website */
+@media screen and (min-width: 768px) {
+  span.recipeListCarouselButton {
+    display: none;
+  }
+
+  div.recipeListCarousel {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  span.recipeListCarouselContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+  }
+
 }
