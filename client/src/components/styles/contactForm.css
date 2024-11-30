@@ -1,0 +1,196 @@
+:root {
+  --contactForm-divMinHeight: 300px;
+  --contactForm-divHeight: 50vh;
+  --contactForm-secondaryColor: #000000;
+  --contactForm-fontSize: ;
+  --contactForm-fontName: ;
+
+  --contactForm-divHeight: 60vh;
+  --contactForm-desktopDivHeight: 40vh;
+
+  --contactForm-formWidth: 80%;
+  --contactForm-formMarginBottom: 50px;
+  --contactForm-desktopFormWidth: 80%;
+  
+  --contactForm-titleMarginTop: 20px;
+  --contactForm-titleMarginBottom: 10px;
+
+  --contactForm-desktopInputContainerPadding: 0 10% 0 0;
+
+  --contactForm-inputWidth: 100%;
+  --contactForm-inputMargin: 7px 0px;
+  --contactForm-inputPadding: 7px 5px;
+  --contactForm-inputBorder: var(--contactForm-secondaryColor) solid 2px;
+
+  --contactForm-desktopInputHeight: 5vh;
+  --contactForm-desktopInputMinHeight: 30px;
+  --contactForm-deskotpInputMargin: max(2vh, 10px);
+  
+  --contactForm-textareaHeight: 20vh;
+  --contactForm-textareaMinHeight: 100px;
+
+  --contactForm-submitBorderRadius: 21px;
+}
+
+div.contactFormDiv {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: var(--contactForm-divHeight);
+  min-height: var(--contactForm-divMinHeight);
+  margin-bottom: var(--contactForm-formMarginBottom);
+}
+
+form.contactForm {
+  box-sizing: border-box;
+  color: var(--contactForm-secondaryColor);
+  font-family: var(--contactForm-fontName);
+  
+  width: var(--contactForm-formWidth);
+}
+
+div.contactFormTitle {
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  margin-top: var(--contactForm-titleMarginTop);
+  margin-bottom: var(--contactForm-titleMarginBottom);
+
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+div.contactFormFields {
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div.contactFormInputContainer {
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+input.contactFormInput {
+  box-sizing: border-box;
+
+  width: var(--contactForm-inputWidth);
+
+  padding: var(--contactForm-inputPadding);
+  border: var(--contactForm-inputBorder);
+  margin: var(--contactForm-inputMargin);
+
+  outline: none;
+}
+
+input.contactFormInput::placeholder {
+  color: var(--contactForm-secondaryColor);
+  font-family: var(--contactForm-fontName);
+}
+
+div.contactFormTextareaContainer {
+  width: 100%;
+}
+
+textarea.contactFormTextarea {
+  box-sizing: border-box;
+  width: var(--contactForm-inputWidth);
+  height: var(--contactForm-textareaHeight);
+  min-height: var(--contactForm-textareaMinHeight);
+
+  margin: var(--contactForm-inputMargin);
+  padding: var(--contactForm-inputPadding);
+  border: var(--contactForm-inputBorder);
+
+  outline: none;
+}
+
+textarea.contactFormTextarea::placeholder {
+  color: var(--contactForm-secondaryColor);
+  font-family: var(--contactForm-fontName);
+}
+
+div.contactFormSubmitContainer {
+  display: flex;
+  justify-content: center;
+}
+
+input.submitButton {
+  color: #FFFFFF;
+  background-color: var(--contactForm-secondaryColor);
+  border-radius: var(--contactForm-submitBorderRadius);
+  border: var(--contactForm-secondaryColor) 0px;
+
+  font-family: var(--contactForm-fontName);
+  font-size: var(--contactForm-fontSize);
+  font-weight: 400;
+
+  margin-top: 5px;
+
+  height: 5vh;
+  min-height: 30px;
+  max-height: 150px;
+
+  width: 50%;
+  min-width: 150px;
+  max-width: 200px;
+}
+
+/* Desktop website */
+@media screen and (min-width: 768px) {
+  div.contactFormDiv {
+    height: var(--contactForm-desktopDivHeight);
+  }
+
+  form.contactForm {
+    height: 100%;
+    width: var(--contactForm-desktopFormWidth);
+  }
+
+  div.contactFormTitle {
+    display: block;
+  }
+
+  div.contactFormFields {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  div.contactFormInputContainer {
+    padding: var(--contactForm-desktopInputContainerPadding);
+  }
+
+  input.contactFormInput {
+    height: var(--contactForm-desktopInputHeight);
+    margin: var(--contactForm-deskotpInputMargin);
+    min-height: var(--contactForm-desktopInputMinHeight);
+  }
+
+  textarea.contactFormTextarea {
+    box-sizing: border-box;
+    height: calc(var(--contactForm-desktopInputHeight) * 3 + var(--contactForm-deskotpInputMargin) * 4);
+    min-height: calc(var(--contactForm-desktopInputMinHeight) * 3 + var(--contactForm-deskotpInputMargin) * 4);
+
+    margin: 2vh 0 2vh 0;
+  }
+
+  div.contactFormSubmitContainer {
+    justify-content: end;
+  }
+}

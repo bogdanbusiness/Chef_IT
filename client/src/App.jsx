@@ -4,6 +4,7 @@ import Footer from './components/Footer.jsx';
 import MainBody from './components/MainBody.jsx';
 import bigLogo from './assets/big_logo_black.png'
 import RecipeList from './components/RecipeList.jsx';
+import ContactForm from './components/ContactForm.jsx';
 
 // Enviroment variables
 // const serverURL = import.meta.env.VITE_backendURL;
@@ -14,6 +15,7 @@ function App() {
       <NavBarContainer />
       <MainBody child={<img className='bigLogo' src={bigLogo} />} />
       <RecipeList />
+      <ContactForm />
       <Footer />
     </>
   );
