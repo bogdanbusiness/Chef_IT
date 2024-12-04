@@ -9,7 +9,6 @@
   --contactForm-desktopDivHeight: 40vh;
 
   --contactForm-formWidth: 80%;
-  --contactForm-formMarginBottom: 50px;
   --contactForm-desktopFormWidth: 80%;
   
   --contactForm-titleMarginTop: 20px;
@@ -42,7 +41,6 @@ div.contactFormDiv {
   width: 100%;
   height: var(--contactForm-divHeight);
   min-height: var(--contactForm-divMinHeight);
-  margin-bottom: var(--contactForm-formMarginBottom);
 }
 
 form.contactForm {

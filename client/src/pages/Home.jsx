@@ -11,7 +11,6 @@ import Footer from '../components/Footer.jsx';
 function Home() {
   return (
     <>
-      <h1> hi </h1>
       <NavBarContainer />
       <MainBody child={<img className='bigLogo' src={bigLogo} style={{
         minWidth: "200px",

@@ -1,0 +1,41 @@
+:root {
+  --loginForm-primaryColor: ;
+  --loginForm-height: 60vh;
+  --loginForm-width: 60vw;
+  --loginForm-minHeight: 60vh;
+  --loginForm-minWidth: 60vw;
+
+  --loginBody-mobileHeight: 85vh;
+}
+
+div.loginBody {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: var(--loginBody-mobileHeight);
+}
+
+div.loginForm {
+  background-color: var(--loginForm-primaryColor);
+  color: white;
+
+  height: var(--loginForm-height);
+  min-height: var(--loginForm-minHeight);
+  width: var(--loginForm-width);
+  min-width: var(--loginForm-minWidth);
+}
+
+/* Desktop website */
+@media screen and (min-width: 768px) {
+  div.loginBody {
+    background-image:  url(../../assets/mainBackground.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+
+    /* this is a hack but i cannot find another way to do this*/
+    /* aspect ratio: 320:157 width:height */
+    height: calc(100vw * 157/320);
+  }
+}
