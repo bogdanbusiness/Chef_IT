@@ -1,22 +1,15 @@
-import './App.css';
-
-import { BrowserRouter, Routes, Route } from 'react-router';
-import Home from './pages/Home.jsx'
-import SignIn from './pages/SignIn.jsx';
+import NavBarContainer from '../components/NavBarContainer.jsx';
+import MainBody from '../components/MainBody.jsx';
+import bigLogo from '../assets/big_logo_black.png'
 
 // Enviroment variables
 // const serverURL = import.meta.env.VITE_backendURL;
 
-function App() {
+function SignIn() {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/signIn" element={<SignIn />} />
-        </Routes>
-      </BrowserRouter>
+      <NavBarContainer />
+      <MainBody child={<img className='bigLogo' src={bigLogo} />} />
     </>
   );
 
@@ -45,4 +38,4 @@ function App() {
   // );
 }
 
-export default App;
+export default SignIn;

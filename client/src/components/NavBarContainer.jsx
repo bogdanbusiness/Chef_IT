@@ -1,7 +1,7 @@
 import './styles/navBarContainer.css';
+import { useState, useEffect } from 'react';
 import BorderedLinkButton from './BorderedLinkButton.jsx';
 import LinkButton from './LinkButton.jsx';
-import { useState, useEffect } from 'react';
 import MenuButton from './menuButton';
 import logo from '../assets/small_logo_white.png';
 
@@ -43,7 +43,7 @@ function NavBarContainer() {
     return clicked == false ? -100 : 0
   }
 
-  const loggedIn = true;
+  const loggedIn = false;
 
   return (
     <div className='navBarContainer'>
@@ -57,7 +57,7 @@ function NavBarContainer() {
       <span className='navBar' style={{ transform: `translateX(${moveRight()}vw)` }}>
         <div className='buttonContainer'>
           <span className='recipeGroup'>
-            <LinkButton message="Home" color="black" link={'index.html'}/>
+            <LinkButton message="Home" color="black" link='/home'/>
             <LinkButton message="Recipes" color="black"/>
             <LinkButton message="Add Recipe" color="black"/>
           </span>
@@ -71,7 +71,7 @@ function NavBarContainer() {
               </>
             ) : (
               <>
-                <BorderedLinkButton message="Login" color="black" borderColor={"#" + import.meta.env.VITE_primaryColor} link=''/>
+                <BorderedLinkButton message="Login" color="black" borderColor={"#" + import.meta.env.VITE_primaryColor} link='/signIn'/>
                 <LinkButton message="Recipes" color="black" link=''/>
               </>
             )} 
@@ -82,7 +82,7 @@ function NavBarContainer() {
       {/* Menu bar for desktop  */}
       <div className='navBarDesktop'>
         <div className='buttonContainer'>
-          <a className='logoContainer' href='index.html'>
+          <a className='logoContainer' href='/home'>
             <img className='logo' src={logo} />
           </a>
 
@@ -101,7 +101,7 @@ function NavBarContainer() {
               </>
             ) : (
               <>
-                <BorderedLinkButton message="Login" color="white" borderColor="white" link=''/>
+                <BorderedLinkButton message="Login" color="white" borderColor="white" link='/signIn'/>
                 <LinkButton message="Register" color="white" link=''/>
               </>
             )}
