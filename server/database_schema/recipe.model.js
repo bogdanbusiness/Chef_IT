@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const RecipeSchema = mongoose.Schema(
   {
-    rid: {
+    _id: {
       type: Number,
       required: true
     },

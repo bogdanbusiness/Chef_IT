@@ -6,7 +6,7 @@ import MobileFooter from '../components/MobileFooter.jsx';
 // Enviroment variables
 // const serverURL = import.meta.env.VITE_backendURL;
 
-function SignIn() {
+function LogIn() {
   
 
   return (
@@ -43,4 +43,4 @@ function SignIn() {
   // );
 }
 
-export default SignIn;
+export default LogIn;

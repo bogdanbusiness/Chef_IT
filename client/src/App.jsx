@@ -2,7 +2,7 @@ import './App.css';
 
 import { BrowserRouter, Routes, Route } from 'react-router';
 import Home from './pages/Home.jsx'
-import SignIn from './pages/SignIn.jsx';
+import LogIn from './pages/LogIn.jsx';
 
 // Enviroment variables
 // const serverURL = import.meta.env.VITE_backendURL;
@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/signIn" element={<SignIn />} />
+          <Route path="/logIn" element={<LogIn />} />
         </Routes>
       </BrowserRouter>
     </>

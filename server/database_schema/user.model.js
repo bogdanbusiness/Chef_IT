@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const UserSchema = mongoose.Schema(
   {
-    uid: {
+    _id: {
       type: Number,
-      required: true
+      required: false
     },
 
     email: {

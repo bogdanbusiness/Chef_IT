@@ -6,6 +6,7 @@
   --loginForm-minWidth: 60vw;
 
   --loginBody-mobileHeight: 85vh;
+  --loginBody-desktopHeight: 90vh;
 }
 
 div.loginBody {
@@ -30,12 +31,7 @@ div.loginForm {
 @media screen and (min-width: 768px) {
   div.loginBody {
     background-image:  url(../../assets/mainBackground.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: bottom;
-
-    /* this is a hack but i cannot find another way to do this*/
-    /* aspect ratio: 320:157 width:height */
-    height: calc(100vw * 157/320);
+    background-size: 100% 100%;
+    height: var(--loginBody-desktopHeight);
   }
 }

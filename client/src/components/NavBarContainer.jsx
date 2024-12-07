@@ -71,8 +71,8 @@ function NavBarContainer() {
               </>
             ) : (
               <>
-                <BorderedLinkButton message="Login" color="black" borderColor={"#" + import.meta.env.VITE_primaryColor} link='/signIn'/>
-                <LinkButton message="Recipes" color="black" link=''/>
+                <BorderedLinkButton message="Login" color="black" borderColor={"#" + import.meta.env.VITE_primaryColor} link='/logIn'/>
+                <LinkButton message="Recipes" color="black" link='/signIn'/>
               </>
             )} 
           </span>
@@ -101,8 +101,8 @@ function NavBarContainer() {
               </>
             ) : (
               <>
-                <BorderedLinkButton message="Login" color="white" borderColor="white" link='/signIn'/>
-                <LinkButton message="Register" color="white" link=''/>
+                <BorderedLinkButton message="Login" color="white" borderColor="white" link='/logIn'/>
+                <LinkButton message="Register" color="white" link='/signIn'/>
               </>
             )}
           </span>

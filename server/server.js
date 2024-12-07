@@ -1,8 +1,14 @@
-const mongoose = require('mongoose');
-const express = require('express');
 const dotenv = require("dotenv").config();
+
+const express = require('express');
+const bcrypt = require("bcrypt");
 const cors = require("cors");
 const app = express();
+
+const mongoose = require('mongoose');
+const Recipe = require("./database_schema/recipe.model");
+const User = require("./database_schema/user.model");
+const { Db } = require("mongodb");
 
 // Environment variables
 const mongoDBURL = process.env.mongoDBURL;
@@ -26,44 +32,77 @@ mongoose.connect(mongoDBURL, {
   .then(() => { console.log("Connection Successfull") })
   .catch((err) => { console.log("Received an Error") })
 
-
-// What to return on a GET request
-app.get(apiURL, (req, res) => {
-  res.status(200);
-  res.send({"string": "Hello from express!"});
-});
-
-// Handle a user request
-app.get(apiURL + "/user", (req, res) => {
-  res.status(200);
-  res.send({"string": "Hello from express!"});
-});
-
-// Handle a recipe request
-app.get(apiURL + "/recipe", (req, res) => {
-  res.status(200);
-  res.send({"string": "Hello from express!"});
-});
-
-
-// Handle a user add request
-app.post(apiURL + "/user", (req, res) => {
+const loggedInSuccess = [{
+  logIn: 1
+}];
   
+const loggedInFail = [{
+  logIn: 0
+}];
+  
+  // {
+  //   uid: 1,
+  //   email: "test@gmail.com",
+  //   password: "ceva",
+  //   full_name: "Cineva",
+  //   telephone: "07",
+  //   timestamp: 1
+  // }
 
-  res.send({
-    struct: `struct with id: ${id} and logo: ${logo}` ,
-  });
-
+app.get(apiURL + "/login", async (req, res) => {
+  try {
+    const find_user = await User.find({});
+    res.status(200).json(find_user);
+  } catch {
+    res.status(500).send();
+  }
 });
 
-// Handle a recipe add request
-app.post(apiURL + "/recipe", (req, res) => {
+// Log in a user
+app.post(apiURL + "/login", async (req, res) => {
   
+  // Find the user by the email
+  const found_user = await User.findOne({"email": req.body.email});
 
-  res.send({
-    struct: `struct with id: ${id} and logo: ${logo}` ,
-  });
+  // Check if it exists
+  if (found_user == null)
+    return res.status(400).send('No user found');
 
+  // Check if the password is correct, log in if it is
+  try {
+    if (await bcrypt.compare(req.body.password, found_user.password)) {
+      res.status(200).json(loggedInSuccess);
+    } else {
+      res.status(200).json(loggedInFail);
+    }
+  } catch {
+    res.status(500).send();
+  }
+});
+
+// Debug: Get all the users from the database
+app.get(apiURL + "/signin", async (req, res) => {
+  try {
+    const find_user = await User.find({});
+    res.status(200).json(find_user);
+  } catch {
+    res.status(500).send();
+  }
+});
+
+// Introduce a user into the database
+app.post(apiURL + "/signin", async (req, res) => {
+  try {
+    const salt = await bcrypt.genSalt();
+    req.body.password = await bcrypt.hash(req.body.password, salt);
+    
+    const new_user = await User.create(req.body); 
+    // new_user.id = _id;
+
+    res.status(201).json(new_user);
+  } catch {
+    res.status(500).send();
+  }
 });
 
 // How to implement cookies
