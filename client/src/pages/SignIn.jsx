@@ -6,7 +6,7 @@ import MobileFooter from '../components/MobileFooter.jsx';
 // Enviroment variables
 // const serverURL = import.meta.env.VITE_backendURL;
 
-function LogIn() {
+function SignIn() {
   return (
     <>
       <NavBarContainer />
@@ -17,4 +17,4 @@ function LogIn() {
   );
 }
 
-export default LogIn;
+export default SignIn;

@@ -9,19 +9,19 @@ const UserSchema = mongoose.Schema(
 
     email: {
       type: String,
-      required: [true, "Pune si tu un email la misto"],
+      required: true,
       default: ""
     },
 
     password: {
       type: String,
-      required: [true, "Pune si tu o parola la misto"],
+      required: true,
       default: ""
     },
 
     full_name: {
       type: String,
-      required: [true, "Pune numele tau"],
+      required: false,
       default: "Prenume Nume"
     },
 

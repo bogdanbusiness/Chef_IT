@@ -1,5 +1,7 @@
 import './styles/navBarContainer.css';
 import { useState, useEffect } from 'react';
+import Cookies from 'js-cookie';
+
 import BorderedLinkButton from './BorderedLinkButton.jsx';
 import LinkButton from './LinkButton.jsx';
 import MenuButton from './menuButton';
@@ -10,8 +12,14 @@ document.documentElement.style.setProperty('--nav-mobileWidth', import.meta.env.
 document.documentElement.style.setProperty('--nav-desktopBgColor', "#"  + import.meta.env.VITE_primaryColor);
 
 function NavBarContainer() {
+  // If the cookie with the user information is present, then the user has already logged in
+  const loggedIn = Cookies.get("user") ? true : false;
+  console.log(Cookies.get("user"));
+
   // Use state to know when the menu image has been clicked
   const [clicked, setClicked] = useState(false);
+
+  // Handle click functions
 
   function handleOnClick() {
     if (clicked == false)
@@ -42,8 +50,6 @@ function NavBarContainer() {
   function blurBackground() {
     return clicked == false ? -100 : 0
   }
-
-  const loggedIn = false;
 
   return (
     <div className='navBarContainer'>

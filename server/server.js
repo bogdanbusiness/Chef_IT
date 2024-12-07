@@ -11,12 +11,17 @@ const User = require("./database_schema/user.model");
 const { Db } = require("mongodb");
 
 // Environment variables
+const frontendURL = process.env.frontendURL;
 const mongoDBURL = process.env.mongoDBURL;
 const port = process.env.port;
 const apiURL = process.env.apiURL;
 
 app.use( express.json() );
-app.use( cors() );
+app.use( cors({
+    origin: frontendURL,
+    credentials: true
+  }) 
+);
 
 
 // Listen to requests from the port
@@ -26,29 +31,12 @@ app.listen(port, () => {
 
 // Connect to DB
 mongoose.connect(mongoDBURL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+
 })
   .then(() => { console.log("Connection Successfull") })
   .catch((err) => { console.log("Received an Error") })
 
-const loggedInSuccess = [{
-  logIn: 1
-}];
-  
-const loggedInFail = [{
-  logIn: 0
-}];
-  
-  // {
-  //   uid: 1,
-  //   email: "test@gmail.com",
-  //   password: "ceva",
-  //   full_name: "Cineva",
-  //   telephone: "07",
-  //   timestamp: 1
-  // }
-
+// Debug: get all the users on the database
 app.get(apiURL + "/login", async (req, res) => {
   try {
     const find_user = await User.find({});
@@ -60,23 +48,30 @@ app.get(apiURL + "/login", async (req, res) => {
 
 // Log in a user
 app.post(apiURL + "/login", async (req, res) => {
-  
   // Find the user by the email
   const found_user = await User.findOne({"email": req.body.email});
 
   // Check if it exists
   if (found_user == null)
-    return res.status(400).send('No user found');
+    return res.status(400).send({message: "Email incorrect."});
 
   // Check if the password is correct, log in if it is
   try {
     if (await bcrypt.compare(req.body.password, found_user.password)) {
-      res.status(200).json(loggedInSuccess);
+      // Modify the sent data to the frontend
+      delete found_user.password;
+      delete found_user._id;
+
+      res.cookie('user', JSON.stringify(found_user), {
+        httpOnly: false,
+        secure: false,   // Ensures the cookie is sent over HTTPS
+        maxAge: 600_00 // Cookie lifespan in milliseconds (1 minute)
+      }).status(200).send();
     } else {
-      res.status(200).json(loggedInFail);
+      res.status(400).send({message: "Password incorrect."});
     }
   } catch {
-    res.status(500).send();
+    res.status(500).send({message: "Server doesn't know how to parse the request."});
   }
 });
 
@@ -104,16 +99,3 @@ app.post(apiURL + "/signin", async (req, res) => {
     res.status(500).send();
   }
 });
-
-// How to implement cookies
-/* res.cookie('username', 'Flavio', { domain: '.flaviocopes.com', path: '/administrator', secure: true }) */
-/*
-    domain	The cookie domain name
-    expires	Set the cookie expiration date. If missing, or 0, the cookie is a session cookie
-    httpOnly	Set the cookie to be accessible only by the web server. See HttpOnly
-    maxAge	Set the expiry time relative to the current time, expressed in milliseconds
-    path	The cookie path. Defaults to '/'
-    secure	Marks the cookie HTTPS only
-    signed	Set the cookie to be signed
-    sameSite	Value of SameSite
-*/

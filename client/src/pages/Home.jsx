@@ -21,30 +21,6 @@ function Home() {
       <Footer />
     </>
   );
-
-  // const [backendData, setBackendData] = useState([{}]);
-
-  // useEffect(() => {
-  //   fetch(serverURL).then(
-  //     (response) => response.json()
-  //   ).then(
-  //     (data) => {
-  //       setBackendData(data)
-  //     }
-  //   )
-  // }, []);
-
-  // return (
-  //   <div>
-  //     {
-  //       (backendData.string == undefined) ? (
-  //         <p>Loading...</p>
-  //       ) : (
-  //         <p> { backendData.string } </p>
-  //       )
-  //     }
-  //   </div>
-  // );
 }
 
 export default Home;
