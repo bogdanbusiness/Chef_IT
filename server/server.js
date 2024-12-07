@@ -92,7 +92,6 @@ app.post(apiURL + "/signin", async (req, res) => {
     req.body.password = await bcrypt.hash(req.body.password, salt);
     
     const new_user = await User.create(req.body); 
-    // new_user.id = _id;
 
     res.status(201).json(new_user);
   } catch {

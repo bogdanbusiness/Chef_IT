@@ -6,8 +6,9 @@ div.footerContainer {
   align-items: end;
 }
 
-img.mobile,
-img.desktop {
+img.mobileOnly {
+  position: absolute;
+  bottom: 0;
   width: 100%;
 }
 
@@ -15,13 +16,9 @@ img.desktop {
   display: none;
 }
 
-span.iconsContainer {
-  display: none;
-}
-
 /* Desktop website */
 @media screen and (min-width: 768px) {
-  div.footerContainer {
+  div.mobileFooterContainer {
     display: none;
   }
 }
