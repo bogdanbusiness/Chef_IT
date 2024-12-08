@@ -1,12 +1,26 @@
 :root {
   --loginForm-primaryColor: ;
-  --loginForm-height: 60vh;
-  --loginForm-width: 60vw;
-  --loginForm-minHeight: 60vh;
-  --loginForm-minWidth: 60vw;
+  --loginForm-fontName: ;
+  --loginForm-fontSize: ;
+
+  --loginForm-height: 70vh;
+  --loginForm-width: 70vw;
+  --loginForm-minHeight: 300px;
+  --loginForm-minWidth: 230px;
+  --loginForm-BorderRadius: 25px;
+
 
   --loginBody-mobileHeight: 85vh;
   --loginBody-desktopHeight: 90vh;
+  --loginBody-minHeight: 400px;
+
+  --loginBody-desktopWidth: 50vw;
+  --loginBody-desktop-maxWidth: 900px;
+
+  --loginBody-inputContainerHeight: 30%;
+  --loginBody-loginSubmitForgotContainer: 20%;
+
+  --loginBody-iconSize: 24px;
 }
 
 div.loginBody {
@@ -15,16 +29,99 @@ div.loginBody {
   justify-content: center;
   width: 100%;
   height: var(--loginBody-mobileHeight);
+  min-height: var(--loginBody-minHeight);
 }
 
-div.loginForm {
+form.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
   background-color: var(--loginForm-primaryColor);
+  font-family: var(--linkButton-fontName);
+  font-size: var(--loginForm-fontSize);
   color: white;
+
+  border-radius: var(--loginForm-BorderRadius);
 
   height: var(--loginForm-height);
   min-height: var(--loginForm-minHeight);
   width: var(--loginForm-width);
   min-width: var(--loginForm-minWidth);
+}
+
+div.loginTitle {
+  text-align: center;
+  
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+div.loginInputsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  height: var(--loginBody-inputContainerHeight);
+  width: 70%;
+}
+
+div.loginInputContainer {
+  display: flex;
+  align-items: center;
+
+  padding-bottom: 10px;
+  border-bottom: 2px white solid;
+
+  width: -webkit-fill-available;
+  width: -moz-available;
+}
+
+div.loginSubmitForgotContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  height: var(--loginBody-loginSubmitForgotContainer);
+}
+
+img.loginIcons {
+  width: var(--loginBody-iconSize);
+  padding: 0 10px 0 0;
+}
+
+input.loginInput {
+  color: inherit;
+  border: 0;
+  background-color: var(--loginForm-primaryColor);
+
+  font-size: 1.2rem;
+  width: -webkit-fill-available;
+  width: -moz-available;
+}
+
+input.loginInput:auto-fill {
+  color: white !important;
+  background-color: var(--loginForm-primaryColor) !important;
+}
+
+input.loginInput:focus {
+  outline-width: 0;
+}
+
+input.loginInput::placeholder {
+  color: white;
+  font-family: var(--loginForm-fontName);
+  font-size: 1.2rem;
+}
+
+a.loginForgotPasswordLink {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid white;
 }
 
 /* Desktop website */
@@ -33,5 +130,10 @@ div.loginForm {
     background-image:  url(../../assets/mainBackground.png);
     background-size: 100% 100%;
     height: var(--loginBody-desktopHeight);
+  }
+
+  form.loginForm {
+    width: var(--loginBody-desktopWidth);
+    max-width: var(--loginBody-desktop-minWidth);
   }
 }
