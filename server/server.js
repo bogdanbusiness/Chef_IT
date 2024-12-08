@@ -65,7 +65,7 @@ app.post(apiURL + "/login", async (req, res) => {
       res.cookie('user', JSON.stringify(found_user), {
         httpOnly: false,
         secure: false,   // Ensures the cookie is sent over HTTPS
-        maxAge: 600_00 // Cookie lifespan in milliseconds (1 minute)
+        maxAge: 86_400_000 // Cookie lifespan in milliseconds (1 day)
       }).status(200).send();
     } else {
       res.status(400).send({message: "Password incorrect."});

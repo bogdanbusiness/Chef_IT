@@ -26,7 +26,9 @@ function LoginForm() {
       });
   
       if (!response.ok) {
-        throw new Error(response.message);
+        const data = await response.json();
+        alert(data.message);
+        return;
       }
 
       alert('Login successful!');
