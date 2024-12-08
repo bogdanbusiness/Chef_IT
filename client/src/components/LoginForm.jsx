@@ -31,8 +31,6 @@ function LoginForm() {
         return;
       }
 
-      alert('Login successful!');
-
       // Reload the page after we have logged in
       window.location.reload(false);
     } catch (error) {
