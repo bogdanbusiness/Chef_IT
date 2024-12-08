@@ -5,9 +5,6 @@ import RecipeList from '../components/RecipeList.jsx';
 import ContactForm from '../components/ContactForm.jsx';
 import Footer from '../components/Footer.jsx';
 
-// Enviroment variables
-// const serverURL = import.meta.env.VITE_backendURL;
-
 function Home() {
   return (
     <>

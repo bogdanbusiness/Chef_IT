@@ -103,7 +103,6 @@ app.post(apiURL + "/signin", async (req, res) => {
     
     // Modify the sent data to the frontend
     delete found_user.password;
-    delete found_user._id;
 
     // Send a loggin cookie
     res.cookie('user', JSON.stringify(new_user), {

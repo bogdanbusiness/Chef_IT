@@ -153,12 +153,16 @@ img.logo {
     min-height: var(--nav-desktopBarMinHeight);
   }
 
-  span.recipeGroup, span.loginGroup {
+  span.recipeGroup {
     display: block;
     padding: 0;
   }
 
   span.loginGroup {
-    justify-self: end;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    
+    padding: 0;
   }
 }

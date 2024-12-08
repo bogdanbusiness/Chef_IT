@@ -11,9 +11,12 @@ import logo from '../assets/small_logo_white.png';
 document.documentElement.style.setProperty('--nav-mobileWidth', import.meta.env.VITE_navBarWidth + "vw");
 document.documentElement.style.setProperty('--nav-desktopBgColor', "#"  + import.meta.env.VITE_primaryColor);
 
-function NavBarContainer() {
-  // If the cookie with the user information is present, then the user has already logged in
-  const loggedIn = Cookies.get("user") ? true : false;
+function NavBarProfile() {
+
+  // Handle cookie removal and logout process
+  function handleLogOut() {
+    Cookies.remove("user");
+  }
 
   // Use state to know when the menu image has been clicked
   const [clicked, setClicked] = useState(false);
@@ -70,16 +73,7 @@ function NavBarContainer() {
           <span className='navBarFiller' style={{ height: "10vh" }} />
 
           <span className='loginGroup'>
-            { loggedIn ? (
-              <>
-                <BorderedLinkButton message="Profile" color="black" borderColor={"#" + import.meta.env.VITE_primaryColor} link='/profile'/>
-              </>
-            ) : (
-              <>
-                <BorderedLinkButton message="Login" color="black" borderColor={"#" + import.meta.env.VITE_primaryColor} link='/logIn'/>
-                <LinkButton message="Recipes" color="black" link='/signIn'/>
-              </>
-            )} 
+            <BorderedLinkButton message="Log out" color="black" borderColor={"#" + import.meta.env.VITE_primaryColor} link="/home" onClickFn={handleLogOut} />
           </span>
         </div>
       </span>
@@ -97,22 +91,10 @@ function NavBarContainer() {
           </span>
 
           <span className='loginGroup'>
-            { loggedIn ? (
-              <>
-                <LinkButton message="Profile" color="white" link='/profile'/>
-                <span className='navBarFiller' style={{
+            <BorderedLinkButton message="Log out" color="white" borderColor="white" link="/home" onClickFn={handleLogOut}/>
+            <span className='navBarFiller' style={{
                   width: "3vw"
-                }} />
-              </>
-            ) : (
-              <>
-                <BorderedLinkButton message="Login" color="white" borderColor="white" link='/logIn'/>
-                <LinkButton message="Register" color="white" link='/signIn'/>
-                <span className='navBarFiller' style={{
-                  width: "3vw"
-                }} />
-              </>
-            )}
+            }} />
           </span>
         </div>
       </div>
@@ -120,4 +102,4 @@ function NavBarContainer() {
   );
 }
 
-export default NavBarContainer;
+export default NavBarProfile;
