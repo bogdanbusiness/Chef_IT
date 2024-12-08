@@ -2,11 +2,6 @@ const mongoose = require('mongoose');
 
 const RecipeSchema = mongoose.Schema(
   {
-    _id: {
-      type: Number,
-      required: true
-    },
-
     creator_name: {
       type: String,
       required: true,

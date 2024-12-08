@@ -90,7 +90,7 @@ div.loginSubmitForgotContainer {
 
 img.loginIcons {
   width: var(--loginBody-iconSize);
-  padding: 0 10px 0 0;
+  padding: 0 10px;
 }
 
 input.loginInput {

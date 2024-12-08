@@ -137,6 +137,7 @@ input.submitButton {
   font-size: var(--contactForm-fontSize);
   font-weight: 600;
 
+  cursor: pointer;
   margin-top: 5px;
 
   height: 5vh;

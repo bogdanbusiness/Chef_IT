@@ -31,7 +31,8 @@ app.listen(port, () => {
 
 // Connect to DB
 mongoose.connect(mongoDBURL, {
-
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 })
   .then(() => { console.log("Connection Successfull") })
   .catch((err) => { console.log("Received an Error") })
@@ -85,16 +86,33 @@ app.get(apiURL + "/signin", async (req, res) => {
   }
 });
 
-// Introduce a user into the database
+// Add a user into the database
 app.post(apiURL + "/signin", async (req, res) => {
   try {
+
+    // Check if the email has been used already
+    const found_user = await User.findOne({"email": req.body.email});
+    if (found_user != null) {
+      res.status(409).json({message: "Email already in use."});
+    }
+
+    // Create a hashed password for the new user
     const salt = await bcrypt.genSalt();
     req.body.password = await bcrypt.hash(req.body.password, salt);
-    
     const new_user = await User.create(req.body); 
+    
+    // Modify the sent data to the frontend
+    delete found_user.password;
+    delete found_user._id;
 
-    res.status(201).json(new_user);
-  } catch {
-    res.status(500).send();
+    // Send a loggin cookie
+    res.cookie('user', JSON.stringify(new_user), {
+      httpOnly: false,
+      secure: false,   // Ensures the cookie is sent over HTTPS
+      maxAge: 86_400_000 // Cookie lifespan in milliseconds (1 day)
+    }).status(201).send();
+  } catch(error) {
+    console.log(error);
+    res.status(500).json({message: "SERVER_ERROR"});
   }
 });

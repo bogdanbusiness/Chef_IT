@@ -1,5 +1,5 @@
 import NavBarContainer from '../components/NavBarContainer.jsx';
-import LoginForm from '../components/LogInForm.jsx';
+import SignInForm from '../components/SignInForm.jsx';
 import MobileFooter from '../components/MobileFooter.jsx';
 
 
@@ -10,7 +10,7 @@ function SignIn() {
   return (
     <>
       <NavBarContainer />
-      <LoginForm />
+      <SignInForm />
 
       <MobileFooter />
     </>

@@ -2,26 +2,21 @@ const mongoose = require('mongoose');
 
 const UserSchema = mongoose.Schema(
   {
-    _id: {
-      type: Number,
-      required: false
-    },
-
     email: {
       type: String,
-      required: true,
+      required: [true, "Pune si tu un email la misto"],
       default: ""
     },
 
     password: {
       type: String,
-      required: true,
+      required: [true, "Pune si tu o parola la misto"],
       default: ""
     },
 
     full_name: {
       type: String,
-      required: false,
+      required: [true, "Pune numele tau"],
       default: "Prenume Nume"
     },
 

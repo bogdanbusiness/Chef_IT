@@ -1,0 +1,140 @@
+:root {
+    --signinForm-primaryColor: ;
+    --signinForm-fontName: ;
+    --signinForm-fontSize: ;
+  
+    --signinForm-height: 80vh;
+    --signinForm-width: 70vw;
+    --signinForm-minHeight: 300px;
+    --signinForm-minWidth: 230px;
+    --signinForm-BorderRadius: 25px;
+  
+  
+    --signinBody-mobileHeight: 100vh;
+    --signinBody-desktopHeight: 90vh;
+    --signinBody-minHeight: 400px;
+  
+    --signinBody-desktopWidth: 50vw;
+    --signinBody-desktop-maxWidth: 900px;
+  
+    --signinBody-inputContainerHeight: 60%;
+    --signinBody-signinSubmitForgotContainer: 20%;
+  
+    --signinBody-iconSize: 24px;
+  }
+  
+  div.signinBody {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: var(--signinBody-mobileHeight);
+    min-height: var(--signinBody-minHeight);
+  }
+  
+  form.signinForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  
+    background-color: var(--signinForm-primaryColor);
+    font-family: var(--linkButton-fontName);
+    font-size: var(--signinForm-fontSize);
+    color: white;
+  
+    border-radius: var(--signinForm-BorderRadius);
+  
+    height: var(--signinForm-height);
+    min-height: var(--signinForm-minHeight);
+    width: var(--signinForm-width);
+    min-width: var(--signinForm-minWidth);
+  }
+  
+  div.signinTitle {
+    text-align: center;
+    
+    font-size: 1.75rem;
+    font-weight: 600;
+  }
+  
+  div.signinInputsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  
+    height: var(--signinBody-inputContainerHeight);
+    width: 70%;
+  }
+  
+  div.signinInputContainer {
+    display: flex;
+    align-items: center;
+  
+    padding-bottom: 10px;
+    border-bottom: 2px white solid;
+  
+    width: -webkit-fill-available;
+    width: -moz-available;
+  }
+  
+  div.signinSubmitForgotContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  
+    height: var(--signinBody-signinSubmitForgotContainer);
+  }
+  
+  img.signinIcons {
+    width: var(--signinBody-iconSize);
+    padding: 0 10px;
+  }
+  
+  input.signinInput {
+    color: inherit;
+    border: 0;
+    background-color: var(--signinForm-primaryColor);
+  
+    font-size: 1.2rem;
+    width: -webkit-fill-available;
+    width: -moz-available;
+  }
+  
+  input.signinInput:auto-fill {
+    color: white !important;
+    background-color: var(--signinForm-primaryColor) !important;
+  }
+  
+  input.signinInput:focus {
+    outline-width: 0;
+  }
+  
+  input.signinInput::placeholder {
+    color: white;
+    font-family: var(--signinForm-fontName);
+    font-size: 1.2rem;
+  }
+  
+  a.signinForgotPasswordLink {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid white;
+  }
+  
+  /* Desktop website */
+  @media screen and (min-width: 768px) {
+    div.signinBody {
+      background-image:  url(../../assets/mainBackground.png);
+      background-size: 100% 100%;
+      height: var(--signinBody-desktopHeight);
+    }
+  
+    form.signinForm {
+      width: var(--signinBody-desktopWidth);
+      max-width: var(--signinBody-desktop-minWidth);
+    }
+  }
+  
