@@ -7,7 +7,23 @@ document.documentElement.style.setProperty('--recipeList-backgroundColor', "#" +
 document.documentElement.style.setProperty('--recipeList-fontSize', import.meta.env.VITE_fontSize + "em");
 document.documentElement.style.setProperty('--recipeList-arrowColor', "#" + import.meta.env.VITE_secondaryColor);
 
-function RecipeList(/*{child}*/) {
+function RecipeList() {
+  // Function that requests information from the backend
+  const handleRequest = async () => {
+    try {
+      const response = await fetch(import.meta.env.VITE_backendURL + "/toprecipe", {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    } catch (error) {
+      alert(error);
+    }
+  }  
+
+
   // Functionality for the carousel
   const slideNo = 3;
   const [slide, setSlide] = useState(1);

@@ -33,6 +33,15 @@ const RecipeSchema = mongoose.Schema(
       default: 0
     },
 
+    // The starting rating is 5 because why not
+    rating: { 
+      type: mongoose.Schema.Types.Decimal128,
+      required: true,
+      min: 1.0, 
+      max: 5.0,
+      default: 5.0
+    },
+
     image: {
       type: String,
       required: false,

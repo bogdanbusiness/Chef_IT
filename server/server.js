@@ -119,10 +119,11 @@ app.post(apiURL + "/signin", async (req, res) => {
   }
 });
 
+// Add a recipe to the database
 app.post(apiURL + "/addrecipe", async (req, res) => {
   try {
     // Check if the recipe has already been added
-    const found_recipe = await Recipe.findOne({"description": req.body.description});
+    const found_recipe = await Recipe.findOne({"name": req.body.recipe_name});
     if (found_recipe != null) {
       res.status(409).json({message: "Recipe has already been added."});
       return;
@@ -139,3 +140,15 @@ app.post(apiURL + "/addrecipe", async (req, res) => {
     res.status(500).json({message: "SERVER_ERROR"});
   }
 });
+
+// Request the top rated recipes
+app.get(apiURL + "/toprecipe", async (req, res) => {
+  try {
+    const top_recipes = await Recipe.find({}).sort({ rating: -1}).limit(3);
+    res.status(200).json(top_recipes);
+  } catch (error) {
+    console.log(error)
+    res.status(500).send();
+  }
+});
+
