@@ -1,6 +1,3 @@
-
-
-import MobileFooter from '../components/MobileFooter.jsx';
 import NavBarContainer from '../components/NavBarContainer.jsx';
 
 function Recipes() {
@@ -8,7 +5,6 @@ function Recipes() {
     <>
       <NavBarContainer />
 
-      <MobileFooter />
     </>
   );
 }

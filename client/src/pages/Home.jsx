@@ -11,7 +11,8 @@ function Home() {
       <NavBarContainer />
       <MainBody child={<img className='bigLogo' src={bigLogo} style={{
         minWidth: "200px",
-        width: "30vw"
+        width: "30vw",
+        zIndex: -1
       }} />} />
       <RecipeList />
       <ContactForm />
