@@ -118,3 +118,24 @@ app.post(apiURL + "/signin", async (req, res) => {
     res.status(500).json({message: "SERVER_ERROR"});
   }
 });
+
+app.post(apiURL + "/addrecipe", async (req, res) => {
+  try {
+    // Check if the recipe has already been added
+    const found_recipe = await Recipe.findOne({"description": req.body.description});
+    if (found_recipe != null) {
+      res.status(409).json({message: "Recipe has already been added."});
+      return;
+    }
+
+    // Create the new recipe
+    await Recipe.create(req.body);
+    
+    // Send a success message
+    res.status(201).send({message: 'Recipe has been added succesfully!'});
+    return;
+  } catch(error) {
+    console.log(error);
+    res.status(500).json({message: "SERVER_ERROR"});
+  }
+});
