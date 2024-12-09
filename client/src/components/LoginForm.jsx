@@ -2,6 +2,7 @@ import './styles/loginForm.css';
 import emailIcon from '../assets/email_icon.png';
 import lockIcon from '../assets/lock_icon.png';
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 document.documentElement.style.setProperty('--loginForm-primaryColor', "#" + import.meta.env.VITE_primaryColor);
 document.documentElement.style.setProperty('--loginForm-fontName', import.meta.env.VITE_fontName);
@@ -10,6 +11,7 @@ document.documentElement.style.setProperty('--loginForm-fontSize', import.meta.e
 function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
   
   const handleSubmit = async (e) => {
     // Prevent default form submission
@@ -27,12 +29,12 @@ function LoginForm() {
   
       if (!response.ok) {
         const data = await response.json();
-        alert(data.message);
+        alert(data.message)
         return;
       }
 
-      // Reload the page after we have logged in
-      window.location.reload(false);
+      // Movie to profile page
+      navigate('/profile');
     } catch (error) {
       // Handle the error messages
       alert(error);

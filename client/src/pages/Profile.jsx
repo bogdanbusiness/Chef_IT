@@ -1,13 +1,12 @@
 import NavBarProfile from '../components/NavBarProfile.jsx';
-import SignInForm from '../components/SignInForm.jsx';
+import ProfileContent from '../components/profileContent.jsx';
 import MobileFooter from '../components/MobileFooter.jsx';
 
 function Profile() {
   return (
     <>
       <NavBarProfile />
-      <SignInForm />
-
+      <ProfileContent />
       <MobileFooter />
     </>
   );

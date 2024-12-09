@@ -66,8 +66,8 @@ function NavBarProfile() {
         <div className='buttonContainer'>
           <span className='recipeGroup'>
             <LinkButton message="Home" color="black" link='/home'/>
-            <LinkButton message="Recipes" color="black"/>
-            <LinkButton message="Add Recipe" color="black"/>
+            <LinkButton message="Recipes" color="black" link='/recipes'/>
+            <LinkButton message="Add Recipe" color="black" link='/addRecipe'/>
           </span>
 
           <span className='navBarFiller' style={{ height: "10vh" }} />
@@ -86,8 +86,8 @@ function NavBarProfile() {
           </a>
 
           <span className='recipeGroup'>
-            <LinkButton message="Recipes" color="white" link=''/>
-            <LinkButton message="Add Recipe" color="white" link=''/>
+            <LinkButton message="Recipes" color="white" link='/recipes'/>
+            <LinkButton message="Add Recipe" color="white" link='/addRecipe'/>
           </span>
 
           <span className='loginGroup'>

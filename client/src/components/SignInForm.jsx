@@ -4,6 +4,7 @@ import personIcon from '../assets/person_icon.png';
 import emailIcon from '../assets/email_icon.png';
 import lockIcon from '../assets/lock_icon.png';
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 document.documentElement.style.setProperty('--signinForm-primaryColor', "#" + import.meta.env.VITE_primaryColor);
 document.documentElement.style.setProperty('--signinForm-fontName', import.meta.env.VITE_fontName);
@@ -15,8 +16,10 @@ function SigninForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirm_password, setConfirmPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
+
     // Prevent default form submission
     e.preventDefault();
 
@@ -57,16 +60,13 @@ function SigninForm() {
         body: JSON.stringify({ full_name, telephone, email, password }),
       });
 
-      if (!response.ok) {
+      if (response.status == 201) {
         const data = await response.json();
         alert(data.message);
-        return;
+        // navigate('/profile');
+      } else {
+        alert("SERVER_ERROR");
       }
-
-      alert('Sign In successful!');
-
-      // Reload the page after we have logged in
-      window.location.reload(false);
     } catch (error) {
       // Handle the error messages
       alert(error);

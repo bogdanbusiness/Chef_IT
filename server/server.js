@@ -94,6 +94,7 @@ app.post(apiURL + "/signin", async (req, res) => {
     const found_user = await User.findOne({"email": req.body.email});
     if (found_user != null) {
       res.status(409).json({message: "Email already in use."});
+      return;
     }
 
     // Create a hashed password for the new user
@@ -102,14 +103,16 @@ app.post(apiURL + "/signin", async (req, res) => {
     const new_user = await User.create(req.body); 
     
     // Modify the sent data to the frontend
-    delete found_user.password;
+    delete new_user.password;
 
     // Send a loggin cookie
     res.cookie('user', JSON.stringify(new_user), {
       httpOnly: false,
       secure: false,   // Ensures the cookie is sent over HTTPS
       maxAge: 86_400_000 // Cookie lifespan in milliseconds (1 day)
-    }).status(201).send();
+    }).status(201).send({message: 'Sign In successful!'});
+
+    return;
   } catch(error) {
     console.log(error);
     res.status(500).json({message: "SERVER_ERROR"});

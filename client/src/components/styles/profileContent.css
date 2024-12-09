@@ -1,0 +1,155 @@
+:root {
+  --profileContent-primaryColor: ;
+  --profileContent-secondColor: ;
+  --profileContent-fontName: ;
+  --profileContent-fontSize: ;
+
+  --profileContent-desktopHeight: 90vh;
+  --profileContent-desktopMinHeight: 480px;
+
+  --profileContent-mobileHeight: 85vh;
+  --profileContent-mobileMinHeight: 500px;
+  
+  --profileContent-cardsContainerHeight: 70vh;
+  --profileContent-cardsContainerMinHeight: 420px;
+  --profileContent-desktopCardsContainerHeight: 50vh;
+  
+  --profileContent-cardBorderRadius: 25px;
+
+  --profileContent-cookCardHeight: 30vh;
+  --profileContent-cookCardMinHeight: 200px;
+  --profileContent-cookCardWidth: 50vw;
+  --profileContent-cookCardMinWidth: 200px;
+
+  --profileContent-infoCardWidth: 70vw;
+  --profileContent-infoCardMinWidth: 300px;
+
+  --profileContent-addRecipeBorderRadius: 15px;
+  --profileContent-addRecipeHeight: 70px;
+  --profileContent-addRecipeWidth: 150px;
+
+}
+
+div.profileContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  width: 100%;
+  height: var(--profileContent-mobileHeight);
+  min-height: var(--profileContent-mobileMinHeight);
+}
+
+div.profileCardsContainer {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: space-evenly;
+
+  height: var(--profileContent-cardsContainerHeight);
+  min-height: var(--profileContent-cardsContainerMinHeight);
+}
+
+div.profileCookCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  background-color: var(--profileContent-primaryColor);
+  border-radius: var(--profileContent-cardBorderRadius);
+
+  width: var(--profileContent-cookCardWidth);
+  height: var(--profileContent-cookCardHeight);
+
+  min-width: var(--profileContent-cookCardMinWidth);
+  min-height: var(--profileContent-cookCardMinHeight);
+}
+
+img.profileCardImg {
+  height: 40%;
+}
+
+div.profileInfoCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  background-color: var(--profileContent-primaryColor);
+  border-radius: var(--profileContent-cardBorderRadius);
+
+  width: var(--profileContent-infoCardWidth);
+  height: var(--profileContent-cookCardHeight);
+
+  min-width: var(--profileContent-infoCardMinWidth);
+  min-height: var(--profileContent-cookCardMinHeight);
+}
+
+span.profileInfo {
+  color: white;
+
+  font-family: var(--profileContent-fontName);
+  font-size: var(--profileContent-fontSize);
+  font-weight: 600;
+
+  padding-bottom: 10px;
+  border-bottom: 2px solid white;
+  width: 75%;
+}
+
+div.profileAddRecipe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--profileContent-secondaryColor);
+  border-radius: var(--profileContent-addRecipeBorderRadius);
+  border: var(--profileContent-secondaryColor) 0px;
+
+  cursor: pointer;
+
+  height: var(--profileContent-addRecipeHeight);
+  width: var(--profileContent-addRecipeWidth);
+}
+
+a.profileAddRecipeLink {
+  color: #FFFFFF;
+  text-decoration: none;
+
+  font-family: var(--profileContent-fontName);
+  font-size: var(--profileContent-fontSize);
+  font-weight: 600;
+}
+
+/* Desktop website */
+@media screen and (min-width: 768px) {
+  div.profileContent {
+    background-image:  url(../../assets/mainBackground.png);
+    background-size: 100% 100%;
+    height: var(--profileContent-desktopHeight);
+    min-height: var(--profileContent-desktopMinHeight);
+  }
+
+  div.profileCardsContainer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    
+    height: var(--profileContent-desktopCardsContainerHeight);
+    width: -webkit-fill-available;
+    width: -moz-available;
+  }
+
+  div.profileCookCard {
+    width: 20vw;
+    height: 40vh;
+  }
+
+  div.profileInfoCard {
+    width: 40vw;
+    height: 40vh;
+  }
+}
