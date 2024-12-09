@@ -7,8 +7,7 @@ import fullStar from '../assets/fullStar.png'
 document.documentElement.style.setProperty('--recipeHorizontal-borderColor', "#" + import.meta.env.VITE_secondaryColor);
 document.documentElement.style.setProperty('--recipeHorizontal-fontName', import.meta.env.VITE_fontName);
 
-function RecipeContainerHorizontal({rid, creator, name, description, 
-                                    rating, ratingNo, image, timestamp, isDisplayed}) {
+function RecipeContainerHorizontal({creator, name, rating, ratingNo, image, isDisplayed}) {
   function showStar(index) {
     return (index + 1) <= rating ? fullStar : emptyStar;
   }
@@ -16,7 +15,7 @@ function RecipeContainerHorizontal({rid, creator, name, description,
   if (isDisplayed) {
     return (
       <span className='recipeHorizontal'>
-        <img src={defaultImg} className='recipeHorizontalImg'/>
+        <img src={ (image.localeCompare("../assets/defaultRecipeImg.png") == 0 ? defaultImg : null) } className='recipeHorizontalImg'/>
 
         <div className='recipeHorizontalData'>
 

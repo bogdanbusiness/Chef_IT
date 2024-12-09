@@ -62,7 +62,7 @@ div.recipeHorizontalGroup2 {
 }
 
 span.recipeHorizontalName {
-  justify-content: center;
+  text-align: center;
   font-size: 1.25rem;
   font-weight: 700;
 }

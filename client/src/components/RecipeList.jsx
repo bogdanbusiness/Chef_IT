@@ -9,20 +9,24 @@ document.documentElement.style.setProperty('--recipeList-arrowColor', "#" + impo
 
 function RecipeList() {
   // Function that requests information from the backend
-  const handleRequest = async () => {
-    try {
-      const response = await fetch(import.meta.env.VITE_backendURL + "/toprecipe", {
-        method: 'GET',
-        credentials: 'include',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-    } catch (error) {
-      alert(error);
-    }
-  }  
+  const [recipes, setRecipes] = useState(null);
 
+  // Fetch the top-rated recipes from the server
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      try {
+        const response = await fetch(import.meta.env.VITE_backendURL + "/toprecipe");
+        const data = await response.json();
+        setRecipes(data);
+
+      } catch (error) {
+        console.error('Error fetching recipes:', error);
+      }
+    };
+    fetchRecipes();
+  }, []);
+
+  console.log(recipes);
 
   // Functionality for the carousel
   const slideNo = 3;
@@ -62,8 +66,8 @@ function RecipeList() {
   }, []);
 
   // Data structure for recipes
+
   const RecipeInfo = {
-    rid: 1,
     creator: "Nume Prenume",
     name: "Reteta",
     description: "Ceva",
@@ -80,10 +84,27 @@ function RecipeList() {
 
         <span className='recipeListCarouselButton' onClick={minusSlide}> &#10094; </span>
         
-        <span className='recipeListCarouselContainer'> 
-          <RecipeContainerHorizontal {...RecipeInfo} isDisplayed={showSlide(1)}/>
-          <RecipeContainerHorizontal {...RecipeInfo} isDisplayed={showSlide(2)}/>
-          <RecipeContainerHorizontal {...RecipeInfo} isDisplayed={showSlide(3)}/>
+        <span className='recipeListCarouselContainer'>
+          { recipes ? (
+            recipes.map((recipe, index) => (
+                <RecipeContainerHorizontal
+                  key={index}
+                  creator={recipe.creator_name}
+                  name={recipe.recipe_name}
+                  rating={recipe.rating}
+                  ratingNo={recipe.people_rated}
+                  image={recipe.image}
+                  isDisplayed={showSlide(index + 1)}
+                />
+              ))
+            ) : (
+            <>
+              <RecipeContainerHorizontal {...RecipeInfo} isDisplayed={showSlide(1)}/>
+              <RecipeContainerHorizontal {...RecipeInfo} isDisplayed={showSlide(2)}/>
+              <RecipeContainerHorizontal {...RecipeInfo} isDisplayed={showSlide(3)}/>
+            </>
+            )
+          }
         </span>
 
         <span className='recipeListCarouselButton' onClick={plusSlide}> &#10095; </span>

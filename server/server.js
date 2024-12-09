@@ -145,7 +145,18 @@ app.post(apiURL + "/addrecipe", async (req, res) => {
 app.get(apiURL + "/toprecipe", async (req, res) => {
   try {
     const top_recipes = await Recipe.find({}).sort({ rating: -1}).limit(3);
-    res.status(200).json(top_recipes);
+
+    // Map the results to include only the required fields
+    const filtered_results = top_recipes.map((recipe) => ({
+      creator_name: recipe.creator_name,
+      recipe_name: recipe.recipe_name,
+      description: recipe.description,
+      people_rated: recipe.people_rated,
+      rating: parseFloat(recipe.rating), // Convert Decimal128 to float
+      image: recipe.image,
+    }));
+
+    res.status(200).json(filtered_results);
   } catch (error) {
     console.log(error)
     res.status(500).send();
