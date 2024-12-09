@@ -8,7 +8,7 @@ const RecipeSchema = mongoose.Schema(
       default: ""
     },
 
-    name: {
+    recipe_name: {
       type: String,
       required: [true, "Pune un nume"],
       default: "Prenume Nume"
