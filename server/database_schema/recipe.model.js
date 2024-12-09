@@ -20,16 +20,23 @@ const RecipeSchema = mongoose.Schema(
       default: "Oferita cu dragoste"
     },
 
-    rating: {
+    // Use these 2 to calculate the rating
+    total_stars: {
       type: Number,
       required: true,
-      default: 5
+      default: 0
+    },
+
+    people_rated: {
+      type: Number,
+      required: true,
+      default: 0
     },
 
     image: {
       type: String,
       required: false,
-      default: "" //TODO: ADD DEFAULT PATH
+      default: "../assets/defaultRecipeImg.png"
     }
   },
   {

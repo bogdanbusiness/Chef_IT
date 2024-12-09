@@ -1,0 +1,111 @@
+:root {
+  --addRecipe-primaryColor: ;
+  --addRecipe-secondColor: ;
+  --addRecipe-fontName: ;
+  --addRecipe-fontSize: ;
+
+  --addRecipe-desktopHeight: 90vh;
+  --addRecipe-desktopMinHeight: 400px;
+
+  --addRecipe-mobileHeight: 85vh;
+  --addRecipe-mobileMinHeight: 400px;
+
+  --addRecipe-cardBorderRadius: 25px;
+
+  --addRecipe-cardHeight: 60vh;
+  --addRecipe-cardMinHeight: 300px;
+  --addRecipe-cardWidth: 90vw;
+  --addRecipe-cardMinWidth: 300px;
+
+  --addRecipe-desktopCardWidth: 40vw;
+  --addRecipe-desktopCardHeight: 70vh;
+}
+
+div.addRecipeBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  width: 100%;
+  height: var(--addRecipe-mobileHeight);
+  min-height: var(--addRecipe-mobileMinHeight);
+}
+
+form.addRecipeCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  color: white;
+  font-family: var(--addRecipe-fontName);
+
+  background-color: var(--addRecipe-primaryColor);
+  border-radius: var(--addRecipe-cardBorderRadius);
+
+  width: var(--addRecipe-cardWidth);
+  height: var(--addRecipe-cardHeight);
+
+  min-width: var(--addRecipe-cardMinWidth);
+  min-height: var(--addRecipe-cardMinHeight);
+}
+
+input.addRecipeInput {
+  color: inherit;
+  border: 0;
+  background-color: var(--addRecipe-primaryColor);
+
+  padding: 0 5px 10px 5px;
+  border-bottom: 2px solid white;
+
+  font-size: 1.2rem;
+  width: 80%;
+  width: 80%;
+}
+
+input.addRecipeInput:focus {
+  outline-width: 0;
+}
+
+input.addRecipeInput::placeholder {
+  color: white;
+  font-family: var(--addRecipe-fontName);
+  font-size: 1.2rem;
+}
+
+span.addRecipePhoto {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+
+  cursor: pointer;
+
+  padding: 0px 10px;
+  border: 1px solid white;
+  border-radius: 15px;
+
+  height: 50px;
+  width: 170px;
+}
+
+img.addRecipeImg {
+  height: 50%;
+}
+
+
+/* Desktop website */
+@media screen and (min-width: 768px) {
+  div.addRecipeBody {
+    background-image: url(../../assets/mainBackground.png);
+    background-size: 100% 100%;
+    height: var(--addRecipe-desktopHeight);
+    min-height: var(--addRecipe-desktopMinHeight);
+  }
+
+  form.addRecipeCard {
+    width: var(--addRecipe-desktopCardWidth);
+    height: var(--addRecipe-desktopCardHeight);
+  }
+}

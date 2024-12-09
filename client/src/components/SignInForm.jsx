@@ -60,12 +60,16 @@ function SigninForm() {
         body: JSON.stringify({ full_name, telephone, email, password }),
       });
 
+      const data = await response.json();
+
       if (response.status == 201) {
-        const data = await response.json();
         alert(data.message);
-        // navigate('/profile');
+        navigate('/profile');
       } else {
-        alert("SERVER_ERROR");
+        if (data.message)
+          alert(data.message);
+        else
+          alert("SERVER_ERROR");
       }
     } catch (error) {
       // Handle the error messages
